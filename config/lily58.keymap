@@ -10,6 +10,15 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 / {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        adjust_layer {
+            if-layers = <LOWER RAISE>;
+            then-layer = <ADJUST>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -62,8 +71,8 @@
             bindings = <
 &kp F1    &kp F2 &kp F3 &kp F4  &kp F5  &kp F6                       &kp F7      &kp F8    &kp F9    &kp F10   &kp F11  &kp F12
 &kp GRAVE &trans &trans &trans  &trans  &trans                       &kp HOME    &kp PG_DN &kp PG_UP &kp END   &trans   &kp DEL
-&kp trans &trans &trans &trans  &trans  &trans                       &kp LEFT    &kp DOWN  &kp UP    &kp RIGHT &trans   &trans
-&kp trans &trans &trans &trans  &trans  &trans    &trans   &trans    &kp KP_PLUS &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH
+&trans    &trans &trans &trans  &trans  &trans                       &kp LEFT    &kp DOWN  &kp UP    &kp RIGHT &trans   &trans
+&trans    &trans &trans &trans  &trans  &trans    &trans   &trans    &kp KP_PLUS &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH
                         &trans  &trans  &trans    &trans   &trans    &trans      &trans    &trans
             >;
 
